@@ -47,6 +47,11 @@
   align-items: center;
   justify-content: center;
   color: var(--color-gray-300);
+  transition: transform 0.2s ease;
+}
+
+.toggleButton.expanded {
+  transform: rotate(90deg);
 }
 
 .toggleButton svg {
@@ -57,10 +62,20 @@
 .endpointsContainer {
   background-color: var(--color-white);
   border-top: 1px solid var(--color-border-primary);
-  padding: var(--spacing-md);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding: 0 var(--spacing-md);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+  transition: all 0.3s ease;
+}
+
+.endpointsContainer.expanded {
+  max-height: 500px;
+  opacity: 1;
+  padding: var(--spacing-md);
 }
 
 .endpointItem {
