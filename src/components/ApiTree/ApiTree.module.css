@@ -94,6 +94,24 @@
   height: var(--icon-size-sm);
   color: var(--color-gray-200);
   flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.chevronRotated {
+  transform: rotate(90deg);
+}
+
+/* 리스트 열고 닫기 애니메이션 */
+.collapsible {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+
+.collapsibleOpen {
+  max-height: 500px; /* 충분히 큰 값 */
+  opacity: 1;
 }
 
 /* HTTP 메서드별 색상 */

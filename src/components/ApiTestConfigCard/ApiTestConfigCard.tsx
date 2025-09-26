@@ -625,13 +625,19 @@ const ApiTestConfigCard: React.FC<ApiTestConfigCardProps> = ({
             <Cog className={styles.toggleIcon} />
             <span className={`${styles.toggleTitle} TitleS`}>요청 설정</span>
           </div>
-          {isRequestConfigOpen ? (
-            <ChevronUp className={styles.chevronIcon} />
-          ) : (
-            <ChevronRight className={styles.chevronIcon} />
-          )}
+          <ChevronRight
+            className={`${styles.chevronIcon} ${
+              isRequestConfigOpen ? styles.chevronRotated : ""
+            }`}
+          />
         </button>
-        {renderRequestConfig()}
+        <div
+          className={`${styles.collapsible} ${
+            isRequestConfigOpen ? styles.collapsibleOpen : ""
+          }`}
+        >
+          {renderRequestConfig()}
+        </div>
       </div>
 
       {/* 실행 파라미터 섹션 */}
@@ -644,17 +650,22 @@ const ApiTestConfigCard: React.FC<ApiTestConfigCardProps> = ({
           type="button">
           <div className={styles.toggleLeft}>
             <Play className={styles.toggleIcon} />
-            <span className={`${styles.toggleTitle} TitleS`}>
-              실행 파라미터
-            </span>
+            <span className={`${styles.toggleTitle} TitleS`}>실행 파라미터</span>
           </div>
-          {isExecutionConfigOpen ? (
-            <ChevronUp className={styles.chevronIcon} />
-          ) : (
-            <ChevronRight className={styles.chevronIcon} />
-          )}
+          <ChevronRight
+            className={`${styles.chevronIcon} ${
+              isExecutionConfigOpen ? styles.chevronRotated : ""
+            }`}
+          />
         </button>
-        {renderExecutionConfig()}
+
+        <div
+          className={`${styles.collapsible} ${
+            isExecutionConfigOpen ? styles.collapsibleOpen : ""
+          }`}
+        >
+          {renderExecutionConfig()}
+        </div>
       </div>
     </div>
   );
